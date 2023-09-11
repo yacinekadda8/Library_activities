@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "72134606166",
+    "project_id": "diamant-bibliotheque-app",
+    "storage_bucket": "diamant-bibliotheque-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72134606166:android:ecd0a5299f0f15c39c6af7",
+        "android_client_info": {
+          "package_name": "com.example.application_bibliotheque"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPzmKwypLdyjd1gTv6pOx17LVAgM4h17s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
