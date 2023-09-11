@@ -13,7 +13,7 @@ class CustomLogoAuth extends StatelessWidget {
           height: 80,
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-              color: AppColors.secondaryColor,
+              color: kblue,
               borderRadius: BorderRadius.circular(70)),
           child: Image.asset(
             "assets/images/logo.png",

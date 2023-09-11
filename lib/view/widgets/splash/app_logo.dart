@@ -11,15 +11,14 @@ class AppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-            double mqwidth = MediaQuery.of(context).size.width;
+    double mqwidth = MediaQuery.of(context).size.width;
 
     return SizedBox(
-      child: SvgPicture
-      .asset(MyAssets.mylogo,
+      child: SvgPicture.asset(MyAssets.mylogo,
           fit: BoxFit.fitHeight,
           height: mqwidth / 6,
           width: mqwidth / 3,
-          colorFilter: const ColorFilter.mode(kprimaryColor, BlendMode.srcIn),
+          colorFilter: const ColorFilter.mode(kdark, BlendMode.srcIn),
           semanticsLabel: 'A red up arrow'),
     );
   }

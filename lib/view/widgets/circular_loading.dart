@@ -11,7 +11,7 @@ class CircularLoading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
         child: CircularProgressIndicator(
-          color: AppColors.secondaryColor,
+          color: kblue,
         ),
       );
   }

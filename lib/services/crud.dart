@@ -3,13 +3,21 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CrudMethods {
+  CollectionReference activities = FirebaseFirestore.instance.collection('activities');
+
   Future<void> addData(actData) async {
-    FirebaseFirestore.instance.collection("activities").add(actData);
+    activities.add(actData);
   }
 
   Future getData() async {
-    return await FirebaseFirestore.instance
-        .collection("activities")
-        .get();
+    return await activities.get();
   }
+
+Future<void> deleteData(uId) {
+  return activities
+    .doc(uId)
+    .delete()
+    .then((value) => print("Item Deleted"))
+    .catchError((error) => print("Failed to delete Item: $error"));
+}
 }

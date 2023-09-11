@@ -43,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 10),
                       Text(S.of(context).b,
                           style: TextStyle(
-                            color: AppColors.darkColor,
+                            color: kdark.withOpacity(.6),
                           )),
                       const SizedBox(height: 20),
                       Text(
@@ -81,8 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          GoRouter.of(context)
-                              .pushReplacement('/resetPasswordScreen');
+                          GoRouter.of(context).push('/resetPasswordScreen');
                         },
                         child: Container(
                           margin: const EdgeInsets.only(top: 10, bottom: 20),
@@ -100,14 +99,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 CustomButtonAuth(
                     title: S.of(context).k,
-                    color: AppColors.primary,
+                    color: kdark.withOpacity(.5),
                     onPressed: () async {
                       if (provider.formState.currentState!.validate()) {
                         provider.login(context);
                       } else {
                         AwesomeDialog(
                           context: context,
-                          dialogBackgroundColor: AppColors.primary,
+                          dialogBackgroundColor: kblue,
                           dialogType: DialogType.error,
                           animType: AnimType.rightSlide,
                           title: S.of(context).a5,
@@ -123,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 40,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
-                    color: AppColors.secondaryColor,
+                    color: kblue,
                     textColor: Colors.white,
                     onPressed: () {
                       provider.signInWithGoogle(context);
@@ -141,14 +140,17 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 Container(height: 20),
                 CustomButtonAuth(
-                  title: S.of(context).x, //Continue As Guest
-                  color: AppColors.darkColor,
-                  onPressed: () => context.go('/homeScreen'),
-                ),
+                    title: S.of(context).x, //Continue As Guest
+                    color: kblue.withOpacity(.5),
+                    onPressed: () {
+                      GoRouter.of(context).push('/homeScreen');
+                    }),
                 Container(height: 20),
                 // Text("Don't Have An Account ? Resister" , textAlign: TextAlign.center,)
                 InkWell(
-                  onTap: () => context.go('/signUpScreen'),
+                  onTap: () {
+                    GoRouter.of(context).push('/signUpScreen');
+                  },
                   child: Center(
                     child: Text.rich(TextSpan(children: [
                       TextSpan(
@@ -156,9 +158,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       TextSpan(
                           text: S.of(context).v, //Register
-                          style: TextStyle(
-                              color: AppColors.primary,
-                              fontWeight: FontWeight.bold)),
+                          style: const TextStyle(
+                              color: kdark, fontWeight: FontWeight.bold)),
                     ])),
                   ),
                 )

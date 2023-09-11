@@ -54,7 +54,7 @@ class LoginController extends ChangeNotifier {
       } else {
         AwesomeDialog(
           context: context,
-          dialogBackgroundColor: AppColors.primary,
+          dialogBackgroundColor: kblue,
           dialogType: DialogType.info,
           showCloseIcon: true,
           animType: AnimType.scale,
@@ -63,7 +63,7 @@ class LoginController extends ChangeNotifier {
               'أنت على وشك الوصول! لقد أرسلنا إليك بريدًا إلكترونيًا\n ما عليك سوى النقر على الرابط الموجود في هذا البريد الإلكتروني لإكمال اشتراكك.  \nإذا لم تشاهده فقد تحتاج إلى التحقق من مجلد الرسائل غير المرغوب فيها',
           btnCancelOnPress: () {},
           btnCancelText: 'Try again',
-          btnCancelColor: AppColors.secondaryColor,
+          btnCancelColor: kdark,
         ).show();
       }
     } on FirebaseAuthException catch (e) {
@@ -73,7 +73,7 @@ class LoginController extends ChangeNotifier {
         }
         AwesomeDialog(
           context: context,
-          dialogBackgroundColor: AppColors.primary,
+          dialogBackgroundColor: kblue,
           dialogType: DialogType.error,
           animType: AnimType.rightSlide,
           title: 'User not found',
@@ -82,6 +82,7 @@ class LoginController extends ChangeNotifier {
             GoRouter.of(context).pushReplacement('/loginScreen');
           },
           btnCancelText: 'Try again',
+          btnCancelColor: kdark
         ).show();
         isLoading = false;
       } else if (e.code == 'wrong-password') {
@@ -90,7 +91,7 @@ class LoginController extends ChangeNotifier {
         }
         AwesomeDialog(
           context: context,
-          dialogBackgroundColor: AppColors.primary,
+          dialogBackgroundColor: kblue,
           dialogType: DialogType.error,
           animType: AnimType.rightSlide,
           title: 'Wrong password',

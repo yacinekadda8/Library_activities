@@ -1,11 +1,13 @@
 import 'package:application_bibliotheque/providers/Auth/signup_provider.dart';
 import 'package:application_bibliotheque/services/crud.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../../const.dart';
 import '../../view/widgets/home/activity_tile.dart';
 import '../../view/widgets/home/home_screen_body.dart';
 
@@ -17,7 +19,8 @@ class HomeController extends ChangeNotifier {
   bool? isAdmin;
   //String? userRole;
 
-  fetchCategories() async {
+  fetchActivities() async {
+    data.clear();
     try {
       isloading = true;
       data.clear();
@@ -33,30 +36,28 @@ class HomeController extends ChangeNotifier {
     }
   }
 
-  
-  // Widget activitiesList() {
-  //   return Container(
-  //     child: isloading == true
-  //         ? const Center(child: CircularProgressIndicator())
-  //         : ListView.builder(
-  //             shrinkWrap: true,
-  //             physics: const NeverScrollableScrollPhysics(),
-  //             itemCount: data.length,
-  //             itemBuilder: (context, index) {
-  //               // var data = snapshot!.docs[index].data()
-  //               //     as Map<String, dynamic>;
-  //               return Padding(
-  //                 padding: const EdgeInsets.only(top: 10.0),
-  //                 child: ActivityTile(
-  //                   imgUrl: data[index]['imageUrl'],
-  //                   title: data[index]['activiteTitle'],
-  //                   body: data[index]['activiteDescription'],
-  //                   author: data[index]['activiteAuthor'],
-  //                 ),
-  //               );
-  //             }),
-  //   );
-  // }
+  deleteActivities(uId) {
+    crudMethods.deleteData(uId);
+    fetchActivities();
+  }
+    void deleteWithWarning(BuildContext context, QueryDocumentSnapshot<Object?> data) {
+    AwesomeDialog(
+        context: context,
+        dialogBackgroundColor: kblue,
+        dialogType: DialogType.warning,
+        showCloseIcon: true,
+        animType: AnimType.scale,
+        title: 'remove',
+        desc: 'remove the activity',
+        btnCancelOnPress: () {},
+        btnCancelText: 'cancel',
+        btnCancelColor: kpurple,
+        btnOkColor: kdark,
+        btnOkOnPress: () {
+          deleteActivities(data.id);
+        }).show();
+  }
+
 
   void logout(context) async {
     GoogleSignIn googleSignIn = GoogleSignIn();

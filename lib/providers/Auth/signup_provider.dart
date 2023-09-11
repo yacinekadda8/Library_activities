@@ -78,7 +78,7 @@ class SignupController extends ChangeNotifier {
         }
         AwesomeDialog(
           context: context,
-          dialogBackgroundColor: AppColors.primary,
+          dialogBackgroundColor: kblue,
           dialogType: DialogType.error,
           animType: AnimType.rightSlide,
           title: S.of(context).a19,
@@ -92,7 +92,7 @@ class SignupController extends ChangeNotifier {
         }
         AwesomeDialog(
           context: context,
-          dialogBackgroundColor: AppColors.primary,
+          dialogBackgroundColor: kblue,
           dialogType: DialogType.error,
           animType: AnimType.rightSlide,
           title: S.of(context).a22,

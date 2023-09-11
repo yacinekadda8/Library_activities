@@ -54,14 +54,17 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: S.delegate.supportedLocales,
       title: 'Bibliotheque App',
       theme: ThemeData(
-        scaffoldBackgroundColor: kneutralColor,
-        iconButtonTheme: IconButtonThemeData(
+        scaffoldBackgroundColor: kpurple,
+        iconButtonTheme: const IconButtonThemeData(
             style: ButtonStyle(
                 // backgroundColor: MaterialStateProperty.all<Color>(kgreyColor),
                 )),
         useMaterial3: true,
+        appBarTheme: AppBarTheme(
+          backgroundColor: kpurple,
+        ),
         colorScheme: ColorScheme.fromSeed(
-          seedColor: kprimaryColor,
+          seedColor: kdark,
         ),
       ),
       routerConfig: AppRouter.router,

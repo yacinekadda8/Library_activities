@@ -40,26 +40,33 @@ class ActivityTile extends StatelessWidget {
         Container(
           height: MediaQuery.of(context).size.height / 4,
           width: MediaQuery.of(context).size.width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: MyStyles.textStyle30.copyWith(color: ksecondaryColor),
-              ),
-              Text(
-                body,
-                textAlign: TextAlign.center,
-                style: MyStyles.textStyle20.copyWith(color: kgreyColor),
-              ),
-              Text(
-                author,
-                textAlign: TextAlign.center,
-                style: MyStyles.textStyle20.copyWith(color: kgreyColor),
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  textAlign: TextAlign.start,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  style: MyStyles.textStyle20.copyWith(color: kblue),
+                ),
+                Text(
+                  body,
+                  textAlign: TextAlign.start,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: MyStyles.textStyle14.copyWith(color: kgrey),
+                ),
+                // Text(
+                //   author,
+                //   textAlign: TextAlign.center,
+                //   style: MyStyles.textStyle20.copyWith(color: kgreyColor),
+                // ),
+              ],
+            ),
           ),
         )
       ]),

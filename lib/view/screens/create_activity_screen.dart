@@ -36,7 +36,9 @@ class _CreateActivityState extends State<CreateActivity> {
                     // router.pop(context);
                     iconSize: 30,
                     padding: EdgeInsets.zero,
-                    onPressed: () => context.pop(),
+                    onPressed: (){
+                       GoRouter.of(context).pushReplacement('/homeScreen');
+                    },
                     icon: const Icon(Icons.close, size: 30),
                   ),
                   const Text(
@@ -104,22 +106,17 @@ class _CreateActivityState extends State<CreateActivity> {
               ElevatedButton(
                   style: ButtonStyle(
                     alignment: Alignment.center,
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(kgreyColor),
+                    backgroundColor: MaterialStateProperty.all<Color>(kgrey),
                   ),
                   onPressed: () {
                     provider.uploadActivities(context);
                   },
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Publish'),
-                      IconButton(
-                        iconSize: 30,
-                        padding: EdgeInsets.zero,
-                        onPressed: () {},
-                        icon: const Icon(Icons.upload_rounded, size: 30),
-                      ),
+                       Text('Publish'),
+                       Icon(Icons.upload_rounded, size: 30),
+                      
                     ],
                   ))
             ],

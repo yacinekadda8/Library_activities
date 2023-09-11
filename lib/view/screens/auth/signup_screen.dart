@@ -38,7 +38,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         fontSize: 30, fontWeight: FontWeight.bold)),
                 Container(height: 10),
                 Text(S.of(context).a0,
-                    style: const TextStyle(color: Colors.grey)),
+                    style: TextStyle(color: kdark.withOpacity(.66))),
                 Container(height: 20),
                 Text(
                   S.of(context).a1,
@@ -98,14 +98,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
           const SizedBox(height: 20),
           CustomButtonAuth(
             title: S.of(context).a3,
-            color: AppColors.primary,
+            color: kblue,
             onPressed: () async {
               if (provider.formState.currentState!.validate()) {
                 provider.signUp(context);
               } else {
                 AwesomeDialog(
                   context: context,
-                  dialogBackgroundColor: AppColors.primary,
+                  dialogBackgroundColor: kdark,
                   dialogType: DialogType.error,
                   animType: AnimType.rightSlide,
                   title: S.of(context).a5,
@@ -119,7 +119,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           const SizedBox(height: 10),
           // Text("Don't Have An Account ? Resister" , textAlign: TextAlign.center,)
           InkWell(
-            onTap: () => context.go('/loginScreen'),            
+            onTap: () => context.go('/loginScreen'),
             child: Center(
               child: Text.rich(TextSpan(children: [
                 TextSpan(
@@ -128,7 +128,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextSpan(
                     text: S.of(context).a,
                     style: const TextStyle(
-                        color: Colors.orange, fontWeight: FontWeight.bold)),
+                        color: kdark, fontWeight: FontWeight.bold)),
               ])),
             ),
           )

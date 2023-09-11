@@ -29,7 +29,9 @@ class _HomeScreenState extends State<HomeScreen> {
           builder: (context, provider, child) {
             return provider.isAdmin == true
                 ? FloatingActionButton(
-                    onPressed: () => context.go('/createActivity'),
+                    onPressed: () {
+                      GoRouter.of(context).push('/createActivity');
+                    },
                     child: const Icon(Icons.add, size: 40),
                   )
                 : const SizedBox();

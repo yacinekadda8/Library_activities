@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../services/crud.dart';
 
@@ -10,7 +11,6 @@ class CreateActivityProvider extends ChangeNotifier {
   XFile? selectedImage;
   CrudMethods crudMethods = CrudMethods();
   Timestamp timestamp = Timestamp.fromDate(DateTime.now());
-
 
   Future getImage() async {
     ImagePicker picker = ImagePicker();
@@ -21,7 +21,6 @@ class CreateActivityProvider extends ChangeNotifier {
 
   uploadActivities(context) async {
     // ========================   upload images to FirebaseStorage
-
     if (selectedImage != null) {
       //----
       File imageFile = File(selectedImage!.path);
@@ -43,7 +42,7 @@ class CreateActivityProvider extends ChangeNotifier {
           "activitePublishDate": timestamp,
         };
         crudMethods.addData(activitiesMap).then((result) {
-          Navigator.pop(context);
+          GoRouter.of(context).pushReplacement('/homeScreen');
         });
       } catch (e) {
         print('Error during uploading $e');

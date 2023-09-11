@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
 import '../view/screens/create_activity_screen.dart';
+import '../view/screens/home/home_details_screen.dart';
 import '../view/screens/home/home_screen.dart';
 
 abstract class AppRouter {
@@ -49,6 +50,24 @@ abstract class AppRouter {
             path: 'createActivity',
             builder: (BuildContext context, GoRouterState state) {
               return const CreateActivity();
+            },
+          ),
+          GoRoute(
+            path: 'homeDetailsScreen',
+            builder: (BuildContext context, GoRouterState state) {
+              final Map<String, dynamic> routeParameters =  (state.extra as Map<String, dynamic>?)?? {};
+              final String imageUrl = routeParameters['imageUrl'] ?? '';
+              final String activiteTitle =
+                  routeParameters['activiteTitle'] ?? '';
+              final String activiteDescription =
+                  routeParameters['activiteDescription'] ?? '';
+              final String activiteAuthor =
+                  routeParameters['activiteAuthor'] ?? '';
+
+              return HomeDetailsScreen(    imageUrl: imageUrl,
+      activiteTitle: activiteTitle,
+      activiteDescription: activiteDescription,
+      activiteAuthor: activiteAuthor,);
             },
           ),
         ],

@@ -2,13 +2,28 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/home/home_details_body.dart';
 
-class HomeDetails extends StatelessWidget {
-  const HomeDetails({super.key});
+class HomeDetailsScreen extends StatelessWidget {
+  final String imageUrl;
+  final String activiteTitle;
+  final String activiteDescription;
+  final String activiteAuthor;
+
+  const HomeDetailsScreen(
+      {required this.imageUrl,
+      required this.activiteTitle,
+      required this.activiteDescription,
+      required this.activiteAuthor,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: HomeDetailsBody(),
+    return  Scaffold(
+      body: HomeDetailsBody(
+        imageUrl: imageUrl,
+        activiteTitle: activiteTitle,
+        activiteDescription: activiteDescription,
+        activiteAuthor: activiteAuthor,
+      ),
     );
   }
 }

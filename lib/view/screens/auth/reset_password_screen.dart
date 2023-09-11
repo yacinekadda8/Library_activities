@@ -51,7 +51,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   provider.resetPassword(context);
                 },
                 title: S.of(context).a13,
-                color: Colors.amber,
+                color: kblue,
               ),
               const SizedBox(height: 20),
               Row(
@@ -63,14 +63,14 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                              GoRouter.of(context).pushReplacement('/loginScreen');
-
+                      GoRouter.of(context).pushReplacement('/loginScreen');
                     },
                     child: Text(
                       S.of(context).a16,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
-                        color: AppColors.primary,
+                        color: kdark,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
