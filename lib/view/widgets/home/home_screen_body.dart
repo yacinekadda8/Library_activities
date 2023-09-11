@@ -1,4 +1,3 @@
-import 'package:application_bibliotheque/const.dart';
 import 'package:application_bibliotheque/services/crud.dart';
 import 'package:application_bibliotheque/utils/my_styles.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +51,10 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                 ],
               ),
             ),
-            provider.activitiesList()
+
+                provider.activitiesList(),
+              
+            
           ],
         ),
       ),

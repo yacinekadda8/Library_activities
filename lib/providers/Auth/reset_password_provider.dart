@@ -41,4 +41,9 @@ class ResetPasswordController extends ChangeNotifier {
       }
     }
   }
+    @override
+  void dispose() {
+    super.dispose();
+    email.dispose();
+  }
 }

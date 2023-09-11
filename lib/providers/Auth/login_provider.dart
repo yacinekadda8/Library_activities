@@ -1,4 +1,3 @@
-
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -32,7 +31,7 @@ class LoginController extends ChangeNotifier {
     );
     // Once signed in, return the UserCredential
     await FirebaseAuth.instance.signInWithCredential(credential);
-     GoRouter.of(context).pushReplacement('/homeScreen');
+    GoRouter.of(context).pushReplacement('/homeScreen');
   }
   // ========================   LOGIN WITH EMAIL && PASSWORD ========================
 
@@ -79,9 +78,12 @@ class LoginController extends ChangeNotifier {
           animType: AnimType.rightSlide,
           title: 'User not found',
           desc: 'No user found for that email.',
-          btnCancelOnPress: () {},
+          btnCancelOnPress: () {
+            GoRouter.of(context).pushReplacement('/loginScreen');
+          },
           btnCancelText: 'Try again',
         ).show();
+        isLoading = false;
       } else if (e.code == 'wrong-password') {
         if (kDebugMode) {
           print('Wrong password provided for that user.');
@@ -97,6 +99,13 @@ class LoginController extends ChangeNotifier {
           btnCancelText: 'Try again',
         ).show();
       }
+      password.clear();
     }
+  }
+    @override
+  void dispose() {
+    super.dispose();
+    email.dispose();
+    password.dispose();
   }
 }
