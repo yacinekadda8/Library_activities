@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../view/widgets/home/activity_tile.dart';
-import '../view/widgets/home/home_screen_body.dart';
+import '../../view/widgets/home/activity_tile.dart';
+import '../../view/widgets/home/home_screen_body.dart';
 
 class HomeController extends ChangeNotifier {
   CrudMethods crudMethods = CrudMethods();
@@ -33,28 +33,30 @@ class HomeController extends ChangeNotifier {
     }
   }
 
-  Widget activitiesList() {
-    return Container(
-        child: isloading == true
-            ? const Center(child: CircularProgressIndicator())
-            : ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: data.length,
-                itemBuilder: (context, index) {
-                  // var data = snapshot!.docs[index].data()
-                  //     as Map<String, dynamic>;
-                  return Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
-                    child: ActivityTile(
-                      imgUrl: data[index]['imageUrl'],
-                      title: data[index]['activiteTitle'],
-                      body: data[index]['activiteDescription'],
-                      author: data[index]['activiteAuthor'],
-                    ),
-                  );
-                }));
-  }
+  
+  // Widget activitiesList() {
+  //   return Container(
+  //     child: isloading == true
+  //         ? const Center(child: CircularProgressIndicator())
+  //         : ListView.builder(
+  //             shrinkWrap: true,
+  //             physics: const NeverScrollableScrollPhysics(),
+  //             itemCount: data.length,
+  //             itemBuilder: (context, index) {
+  //               // var data = snapshot!.docs[index].data()
+  //               //     as Map<String, dynamic>;
+  //               return Padding(
+  //                 padding: const EdgeInsets.only(top: 10.0),
+  //                 child: ActivityTile(
+  //                   imgUrl: data[index]['imageUrl'],
+  //                   title: data[index]['activiteTitle'],
+  //                   body: data[index]['activiteDescription'],
+  //                   author: data[index]['activiteAuthor'],
+  //                 ),
+  //               );
+  //             }),
+  //   );
+  // }
 
   void logout(context) async {
     GoogleSignIn googleSignIn = GoogleSignIn();

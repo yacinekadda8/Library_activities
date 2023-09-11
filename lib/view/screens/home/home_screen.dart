@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../widgets/home/home_screen_body.dart';
+import '../../widgets/home/home_screen_body.dart';
 import 'package:provider/provider.dart';
-import '../../providers/home_provider.dart';
+import '../../../providers/home/home_provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,7 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: const SafeArea(child: HomeScreenBody()),
+        body: const SafeArea(
+          child: HomeScreenBody(),
+        ),
         floatingActionButton: Consumer<HomeController>(
           builder: (context, provider, child) {
             return provider.isAdmin == true

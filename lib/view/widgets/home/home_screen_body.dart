@@ -1,9 +1,10 @@
 import 'package:application_bibliotheque/services/crud.dart';
 import 'package:application_bibliotheque/utils/my_styles.dart';
+import 'package:application_bibliotheque/view/widgets/home/activity_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../providers/home_provider.dart';
+import '../../../providers/home/home_provider.dart';
 
 class HomeScreenBody extends StatefulWidget {
   const HomeScreenBody({super.key});
@@ -20,7 +21,6 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
   void initState() {
     super.initState();
     provider = Provider.of<HomeController>(context, listen: false);
-    //provider.init();
     provider.fetchCategories();
   }
 
@@ -51,10 +51,27 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                 ],
               ),
             ),
-
-                provider.activitiesList(),
-              
-            
+            Container(
+              child: provider.isloading == true
+                  ? const Center(child: CircularProgressIndicator())
+                  : ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: provider.data.length,
+                      itemBuilder: (context, index) {
+                        var data = provider.data[index];
+                        //     as Map<String, dynamic>;
+                        return Padding(
+                          padding: const EdgeInsets.only(top: 10.0),
+                          child: ActivityTile(
+                            imgUrl: data['imageUrl'],
+                            title: data['activiteTitle'],
+                            body: data['activiteDescription'],
+                            author: data['activiteAuthor'],
+                          ),
+                        );
+                      }),
+            )
           ],
         ),
       ),

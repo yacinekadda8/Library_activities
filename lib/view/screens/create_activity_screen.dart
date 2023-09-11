@@ -10,7 +10,7 @@ import 'dart:io';
 import 'package:provider/provider.dart';
 
 import '../../const.dart';
-import '../../providers/create_activity_provider.dart';
+import '../../providers/home/create_activity_provider.dart';
 
 class CreateActivity extends StatefulWidget {
   const CreateActivity({super.key});

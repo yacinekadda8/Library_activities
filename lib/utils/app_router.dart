@@ -6,8 +6,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
-import '../view/screens/create_activity.dart';
-import '../view/screens/home_screen.dart';
+import '../view/screens/create_activity_screen.dart';
+import '../view/screens/home/home_screen.dart';
 
 abstract class AppRouter {
   static final GoRouter router = GoRouter(
