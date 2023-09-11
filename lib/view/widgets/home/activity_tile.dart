@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../const.dart';
 import '../../../utils/my_styles.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ActivityTile extends StatelessWidget {
   final String imgUrl, title, body, author;
@@ -24,8 +25,8 @@ class ActivityTile extends StatelessWidget {
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),
-              child: Image.network(
-                imgUrl,
+              child: CachedNetworkImage(
+                imageUrl: imgUrl,
                 fit: BoxFit.cover,
               ),
             )),

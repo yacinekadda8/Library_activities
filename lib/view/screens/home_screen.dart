@@ -14,7 +14,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     final provider = Provider.of<HomeController>(context, listen: false);
     provider.intData();
@@ -22,8 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<HomeController>(context);
-    //print('==============userRole: $userRole ==============');
     return Scaffold(
         body: const SafeArea(child: HomeScreenBody()),
         floatingActionButton: Consumer<HomeController>(
@@ -33,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () => context.go('/createActivity'),
                     child: const Icon(Icons.add, size: 40),
                   )
-                : SizedBox();
+                : const SizedBox();
           },
         ));
   }
